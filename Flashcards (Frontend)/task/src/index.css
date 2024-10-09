@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+.item1 { grid-area: header1; }
+.item2 { grid-area: header2; }
+.item3 { grid-area: header3; }
+.item4 { grid-area: main1;}
+.item5 { grid-area: main2;}
+.item6 { grid-area: main3;}
+.item7 { grid-area: footer1;}
+.item8 { grid-area: footer2;}
+.item9 { grid-area: footer3;}
+
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: url("https://stepik.org/media/attachments/lesson/374893/world.png") no-repeat;
+    background-size: cover;
+}
+.quiz-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.quiz-area h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+    animation-name: change-font-size;
+    animation-duration: 3s;
+}
+.grid-container {
+    display: grid;
+    width: 600px;
+    height: 600px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 'header1 header2 header3'
+                    'main1 main2 main3'
+                'footer1 footer2 footer3';
+    gap: 1rem;
+
+    grid-template-rows: repeat(3, 1fr);
+
+}
+
+.card:hover {
+    transform: rotateY(180deg);
+}
+.front , .back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+}
+.card {
+    position: relative;
+    background-color: darkviolet;
+    transition: all 1s linear;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    border-radius: 10px;
+    z-index: 0;
+}
+
+ .card  .front {
+    background-color: plum !important;
+    text-align: center;
+    font-size: 2em;
+    backface-visibility: hidden;
+    z-index: 3;
+}
+.card  .back {
+    background-color: darkviolet !important;
+    color: white;
+    font-size: 2em;
+    transform: rotateY(180deg);
+    z-index: 2;
+}
